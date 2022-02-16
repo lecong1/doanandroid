@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:doan/widgets/quanity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../constant/product_data.dart';
@@ -94,13 +95,7 @@ class _CartPageState extends State<CartPage> {
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w500),
                             ),
-                            Text(
-                              "x1",
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: black.withOpacity(0.5),
-                                  fontWeight: FontWeight.w500),
-                            )
+                            quanity()
                           ],
                         )
                       ],
