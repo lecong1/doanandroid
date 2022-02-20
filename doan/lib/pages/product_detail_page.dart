@@ -1,6 +1,8 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:doan/Provider/ProviderCart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import '../theme/colors.dart';
 import '../widgets/product_slider.dart';
 

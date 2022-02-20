@@ -1,8 +1,12 @@
+import 'package:doan/screens/signin_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
+import 'package:provider/provider.dart';
 import '../widgets/widget.dart';
 import '../constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:doan/Provider/ProviderAccount.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -11,7 +15,17 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   bool passwordVisibility = true;
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController password1 = TextEditingController();
   @override
+  void initState() {
+    email = TextEditingController();
+    password = TextEditingController();
+    password1 = TextEditingController();
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -57,14 +71,17 @@ class _RegisterPageState extends State<RegisterPage> {
                           MyTextField(
                             hintText: 'Name',
                             inputType: TextInputType.name,
+                            controller: email,
                           ),
                           MyTextField(
                             hintText: 'Email',
                             inputType: TextInputType.emailAddress,
+                            controller: password,
                           ),
                           MyTextField(
                             hintText: 'Phone',
                             inputType: TextInputType.phone,
+                            controller: password1,
                           ),
                           MyPasswordField(
                             isPasswordVisible: passwordVisibility,
@@ -97,7 +114,17 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     MyTextButton(
                       buttonName: 'Register',
-                      onTap: () {},
+                      onTap: () async {
+                        await Provider.of<ProviderAccount>(context,
+                                listen: false)
+                            .login(email.text, password.text);
+                        Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => SignInPage(),
+                          ),
+                        );
+                      },
                       bgColor: Colors.white,
                       textColor: Colors.black87,
                     )

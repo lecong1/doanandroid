@@ -7,7 +7,7 @@ class ProductProvider with ChangeNotifier {
   bool loading = false;
   getProduct(context) async {
     loading = true;
-    products = (await getAllSanPham(context)).cast<Product>();
+    products = (await getAllSanPham()).cast<Product>();
     loading = false;
 
     notifyListeners();

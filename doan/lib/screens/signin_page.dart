@@ -1,20 +1,32 @@
 import 'package:doan/pages/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../constants.dart';
 import '../screens/screen.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import '../widgets/widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:doan/Provider/ProviderAccount.dart';
 
 class SignInPage extends StatefulWidget {
+  const SignInPage({Key? key}) : super(key: key);
   @override
   _SignInPageState createState() => _SignInPageState();
 }
 
 class _SignInPageState extends State<SignInPage> {
   bool isPasswordVisible = true;
+  login(email, password) {}
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
+  void initState() {
+    email = TextEditingController();
+    password = TextEditingController();
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -64,6 +76,7 @@ class _SignInPageState extends State<SignInPage> {
                           MyTextField(
                             hintText: 'Phone, email or username',
                             inputType: TextInputType.text,
+                            controller: email,
                           ),
                           MyPasswordField(
                             isPasswordVisible: isPasswordVisible,
@@ -107,6 +120,8 @@ class _SignInPageState extends State<SignInPage> {
                     MyTextButton(
                       buttonName: 'Sign In',
                       onTap: () {
+                        Provider.of<ProviderAccount>(context, listen: false)
+                            .login(email.text, password.text);
                         Navigator.push(
                           context,
                           CupertinoPageRoute(

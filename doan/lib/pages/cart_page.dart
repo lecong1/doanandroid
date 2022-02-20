@@ -1,10 +1,12 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:doan/pages/bill.dart';
 import 'package:doan/widgets/quanity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../constant/product_data.dart';
 import '../theme/colors.dart';
 import '../widgets/app_bar.dart';
+import 'package:flutter/cupertino.dart';
 
 class CartPage extends StatefulWidget {
   @override
@@ -88,18 +90,29 @@ class _CartPageState extends State<CartPage> {
                           height: 15,
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             Text(
                               "\$ " + products[index]['price'],
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w500),
                             ),
-                            quanity()
+                            quanity(),
+                            IconButton(
+                              padding: EdgeInsets.zero,
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.delete,
+                                size: 20,
+                              ),
+                            )
                           ],
-                        )
+                        ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: []),
                       ],
-                    ))
+                    )),
                   ],
                 ),
               ),
@@ -137,7 +150,14 @@ class _CartPageState extends State<CartPage> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30)),
               color: black,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) => bill(),
+                  ),
+                );
+              },
               child: Container(
                 height: 50,
                 child: Center(
