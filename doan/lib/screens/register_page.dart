@@ -1,3 +1,4 @@
+import 'package:doan/pages/home_page.dart';
 import 'package:doan/screens/signin_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -114,14 +115,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     MyTextButton(
                       buttonName: 'Register',
-                      onTap: () async {
-                        await Provider.of<ProviderAccount>(context,
-                                listen: false)
+                      onTap: () {
+                        Provider.of<ProviderAccount>(context, listen: false)
                             .login(email.text, password.text);
                         Navigator.push(
                           context,
                           CupertinoPageRoute(
-                            builder: (context) => SignInPage(),
+                            builder: (context) => HomePage(),
                           ),
                         );
                       },
