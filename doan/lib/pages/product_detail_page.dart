@@ -5,6 +5,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import '../theme/colors.dart';
 import '../widgets/product_slider.dart';
+import 'package:flutter/cupertino.dart';
+
+import 'cart_page.dart';
 
 class ProductDetailPage extends StatefulWidget {
   final String id;
@@ -220,7 +223,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30)),
                           color: black,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                builder: (context) => CartPage(),
+                              ),
+                            );
+                          },
                           child: Container(
                             height: 50,
                             child: Center(

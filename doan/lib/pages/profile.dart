@@ -1,4 +1,5 @@
 import 'package:doan/pages/Personal.dart';
+import 'package:doan/screens/signin_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -91,7 +92,14 @@ class _ProfileState extends State<Profile> {
                 width: double.maxFinite,
                 height: 40,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (context) => SignInPage(),
+                      ),
+                    );
+                  },
                   child: Text(
                     'Đăng xuất',
                     style: TextStyle(

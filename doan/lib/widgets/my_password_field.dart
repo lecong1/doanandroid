@@ -25,15 +25,6 @@ class MyPasswordField extends StatelessWidget {
         decoration: InputDecoration(
           suffixIcon: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: IconButton(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onPressed: onTap,
-              icon: Icon(
-                isPasswordVisible ? Icons.visibility : Icons.visibility_off,
-                color: Colors.grey,
-              ),
-            ),
           ),
           contentPadding: EdgeInsets.all(20),
           hintText: 'Password',

@@ -121,7 +121,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         Navigator.push(
                           context,
                           CupertinoPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => SignInPage(),
                           ),
                         );
                       },

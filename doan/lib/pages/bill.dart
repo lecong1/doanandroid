@@ -110,7 +110,7 @@ class bill extends StatelessWidget {
     );
 
     return MaterialApp(
-      title: 'Món ăn',
+      title: 'Thanh Toán',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         //backgroundColor: Colors.yellow[300],
@@ -134,7 +134,7 @@ class bill extends StatelessWidget {
                 FlatButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
-                      side: const BorderSide(color: Colors.red)),
+                      side: const BorderSide(color: Colors.grey)),
                   color: Colors.white,
                   textColor: Colors.blue,
                   padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
